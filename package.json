@@ -4,7 +4,7 @@
   "main": "dist-electron/main/index.js",
   "description": "Electron-based Pomodoro Timer using Vue + Vite + TypeScript",
   "author": {
-    "name": "tiagokriok",
+    "name": "Tiago Carioca",
     "email": "tiagoacarioca@gmail.com",
     "url": "https://tiagokriok.dev/"
   },
