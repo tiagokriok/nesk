@@ -1,8 +1,13 @@
 {
   "name": "Nesk",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "dist-electron/main/index.js",
-  "author": "tiagokriok",
+  "description": "Electron-based Pomodoro Timer using Vue + Vite + TypeScript",
+  "author": {
+    "name": "tiagokriok",
+    "email": "tiagoacarioca@gmail.com",
+    "url": "https://tiagokriok.dev/"
+  },
   "license": "MIT",
   "private": true,
   "scripts": {

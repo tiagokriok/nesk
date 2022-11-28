@@ -12,6 +12,7 @@
     artifactName: '${productName}_${version}.${ext}',
     target: ['dmg'],
     category: 'public.app-category.utilities',
+    icon: './electron/resources/icons/icon.icns',
   },
   win: {
     target: [
@@ -21,10 +22,12 @@
       },
     ],
     artifactName: '${productName}_${version}.${ext}',
+    icon: './electron/resources/icons/icon.ico',
   },
   linux: {
     category: 'Utilities',
-    target: ['AppImage', 'deb', 'pacman', 'freebsd', 'rpm'],
+    target: ['AppImage', 'deb', 'snap'],
+    icon: './electron/resources/icons/',
   },
   nsis: {
     oneClick: false,
