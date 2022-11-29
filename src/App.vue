@@ -8,7 +8,6 @@ import {
   PowerIcon,
   StopIcon,
 } from '@heroicons/vue/20/solid';
-import { ipcRenderer } from 'electron';
 import { onMounted, reactive } from 'vue';
 import bellAudio from './assets/sounds/bell.wav';
 
@@ -138,33 +137,33 @@ const handlerNextCycle = () => {
 
 const handlerSettings = () => {
   console.log('SETTINGS');
-  ipcRenderer.send('open-preferences', !preferences.isOpen);
+  window.nesk.settings(!preferences.isOpen);
   preferences.isOpen = !preferences.isOpen;
 };
 
 const handlerClose = () => {
   console.log('CLOSE');
-  ipcRenderer.send('close');
+  window.nesk.close();
 };
 
 const handlerRedirect = (url: string) => {
   console.log('REDIRECT');
-  ipcRenderer.send('redirect', url);
+  window.nesk.redirect(url);
 };
 
-const handlerMouseEnter = () => {
-  console.log('Enter');
-  ipcRenderer.send('set-ignore-mouse-events', false);
-};
+// const handlerMouseEnter = () => {
+//   console.log('Enter');
+//   ipcRenderer.send('set-ignore-mouse-events', false);
+// };
 
-const handlerMouseLeave = () => {
-  console.log('Leave', process.platform);
-  if (process.platform === 'win32') {
-    ipcRenderer.send('set-ignore-mouse-events', true, { forward: true });
-  } else {
-    ipcRenderer.send('set-ignore-mouse-events', true);
-  }
-};
+// const handlerMouseLeave = () => {
+//   console.log('Leave', process.platform);
+//   if (process.platform === 'win32') {
+//     ipcRenderer.send('set-ignore-mouse-events', true, { forward: true });
+//   } else {
+//     ipcRenderer.send('set-ignore-mouse-events', true);
+//   }
+// };
 </script>
 
 <template>
