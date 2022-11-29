@@ -66,6 +66,8 @@ async function createWindow() {
     visibleOnFullScreen: true,
   });
 
+  PLATFORM.IS_MAC && win.setWindowButtonVisibility(false);
+
   if (process.env.VITE_DEV_SERVER_URL) {
     win.loadURL(url);
 
@@ -90,8 +92,6 @@ async function createWindow() {
   //   console.info('move');
   // });
 }
-
-PLATFORM.IS_MAC && win.setWindowButtonVisibility(false);
 
 if (PLATFORM.IS_LINUX) {
   app.commandLine.appendSwitch('enable-transparent-visuals');
