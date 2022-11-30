@@ -1,7 +1,7 @@
 {
   "name": "Nesk",
-  "version": "1.0.0",
-  "main": "dist-electron/main/index.js",
+  "version": "1.1.0",
+  "main": "dist-electron/main.js",
   "description": "Electron-based Pomodoro Timer using Vue + Vite + TypeScript",
   "author": {
     "name": "Tiago Carioca",
@@ -47,6 +47,7 @@
     "rollup",
     "vite",
     "vue3",
-    "vue"
+    "vue",
+    "nesk"
   ]
 }

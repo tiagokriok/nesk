@@ -1,14 +1,14 @@
+import { app, BrowserWindow, ipcMain, shell } from 'electron';
+import { release } from 'os';
+import { join } from 'path';
+import { PLATFORM } from '../shared/constants';
+import { userPreferences } from '../shared/store';
+
 process.env.DIST_ELECTRON = join(__dirname, '..');
 process.env.DIST = join(process.env.DIST_ELECTRON, '../dist');
 process.env.PUBLIC = app.isPackaged
   ? process.env.DIST
   : join(process.env.DIST_ELECTRON, '../public');
-
-import { app, BrowserWindow, ipcMain, shell } from 'electron';
-import { release } from 'os';
-import { join } from 'path';
-import { PLATFORM } from '../../shared/constants';
-import { userPreferences } from '../../shared/store';
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration();
@@ -23,7 +23,7 @@ if (!app.requestSingleInstanceLock()) {
 
 let win: BrowserWindow | null = null;
 // Here, you can also use other preload
-const preload = join(__dirname, '../preload/index.js');
+const preload = join(__dirname, 'preload.js');
 const url = process.env.VITE_DEV_SERVER_URL;
 const indexHtml = join(process.env.DIST, 'index.html');
 const {
@@ -53,8 +53,8 @@ async function createWindow() {
     hasShadow,
     webPreferences: {
       preload,
-      nodeIntegration: true,
-      contextIsolation: false,
+      contextIsolation: true,
+      sandbox: true,
     },
   });
 
